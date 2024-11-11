@@ -15,18 +15,21 @@ import org.springframework.web.bind.annotation.RestController;
 import br.uff.sistema_energia.entities.ClienteRegular;
 import br.uff.sistema_energia.entities.ClienteVital;
 import br.uff.sistema_energia.entities.abstratas.Cliente;
+import br.uff.sistema_energia.resource.dto.request.ClienteDTO;
 import br.uff.sistema_energia.resource.swagger.ClienteResourceApi;
 import br.uff.sistema_energia.service.ClienteService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping("/clientes")
+@Tag(name = "Clientes", description = "Endpoints relacionados ao gerenciamento dos clientes.")
 public class ClienteResource implements ClienteResourceApi {
 
 	@Autowired
 	private ClienteService clienteService;
 
 	@PostMapping
-	public ResponseEntity<ClienteRegular> cadastrarClienteRegular(@RequestBody ClienteRegular cliente) {
+	public ResponseEntity<ClienteRegular> cadastrarClienteRegular(@RequestBody ClienteDTO cliente) {
 		return ResponseEntity.ok(clienteService.cadastrarClienteRegular(cliente));
 	}
 

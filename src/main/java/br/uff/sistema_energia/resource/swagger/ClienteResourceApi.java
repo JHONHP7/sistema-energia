@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import br.uff.sistema_energia.entities.ClienteRegular;
 import br.uff.sistema_energia.entities.ClienteVital;
 import br.uff.sistema_energia.entities.abstratas.Cliente;
+import br.uff.sistema_energia.resource.dto.request.ClienteDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
@@ -15,7 +16,7 @@ import io.swagger.v3.oas.annotations.parameters.RequestBody;
 public interface ClienteResourceApi {
 
     @Operation(summary = "Cadastrar um novo cliente regular")
-    public ResponseEntity<ClienteRegular> cadastrarClienteRegular(@RequestBody @Parameter(description = "Cliente regular a ser cadastrado") ClienteRegular clienteRegular);
+    public ResponseEntity<ClienteRegular> cadastrarClienteRegular(@RequestBody @Parameter(description = "Cliente regular a ser cadastrado") ClienteDTO clienteRegular);
 
     @Operation(summary = "Cadastrar um novo cliente vital")
     public ResponseEntity<ClienteVital> cadastrarClienteVital(@RequestBody @Parameter(description = "Cliente vital a ser cadastrado") ClienteVital clienteVital);
