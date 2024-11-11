@@ -15,6 +15,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.PrePersist;
@@ -55,6 +56,10 @@ public class OrdemServico {
 
     @Column(nullable = true)
     private Integer codigoPrioridade;
+    
+    @ManyToOne
+    @JoinColumn(name = "equipe_codigo", nullable = false)
+    private Equipe equipe;
     
     @PrePersist
     public void prePersist() {
